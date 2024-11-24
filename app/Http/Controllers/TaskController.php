@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Task;
+use App\Http\Requests\StoreTaskRequest;
 
 class TaskController extends Controller
 {
@@ -11,15 +13,17 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        return Task::all();
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    //public function store(Request $request)
+    public function store(StoreTaskRequest $request): RedirectResponse
     {
-        //
+        $task = Task::create($request->all());
+        return response()->json($task, 201);
     }
 
     /**
@@ -27,7 +31,7 @@ class TaskController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return Task::findOrFail($id);
     }
 
     /**
@@ -35,7 +39,9 @@ class TaskController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $task = Task::findOrFail($id);
+        $task->update($request->all());
+        return response()->json($task, 200);
     }
 
     /**
@@ -43,6 +49,7 @@ class TaskController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Task::findOrFail($id)->delete();
+        return response()->json(null, 204);
     }
 }
