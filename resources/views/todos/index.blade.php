@@ -8,7 +8,7 @@
 <div class="todo">
     <h2 class="text-xl font-semibold mt-5 text-[#063c76]">To-do List</h2>
     <ul class="my-4 ">
-        @for ($i = 0; $i < 8; $i++) 
+        @for ($i = 0; $i < 1; $i++) 
         <li class=" mt-4" id="{{ $i }}">
             <div class="flex justify-start items-center h-12 shadow drop-shadow-md rounded-[7px] px-3 hover:shadow-md">
                 <div class="grow flex justify-start items-center">

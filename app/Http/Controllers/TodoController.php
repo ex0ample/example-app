@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\TodoStoreRequest;
+use App\Http\Requests\TodoUpdateRequest;
 use Illuminate\Http\Request;
 
 class TodoController extends Controller
@@ -19,15 +20,17 @@ class TodoController extends Controller
      */
     public function create()
     {
-        //
+        return view('todos.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(TodoStoreRequest $request)
     {
-        //
+        Todo::create($request->validated());
+
+        return redirect()->route('todo.create')->with('success', 'Todo created successfully.');
     }
 
     /**
