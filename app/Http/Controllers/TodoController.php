@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\TodoStoreRequest;
 use App\Http\Requests\TodoUpdateRequest;
 use Illuminate\Http\Request;
+use App\Models\Todo;
 
 class TodoController extends Controller
 {
@@ -12,7 +13,11 @@ class TodoController extends Controller
      */
     public function index()
     {
-        return view('todos.index');
+        //ดึงข้อมูล ในตาราง Todo 5 เรคคอร์ด ล่าสุด มาเก็บไว้ใน $todos
+        $todos = Todo::latest()->paginate(5);
+        
+        //นำข้อมูลใน $todos ส่งไปแสดงในหน้า Views>todos>index.blade.php
+        return view('todos.index', compact('todos'));
     }
 
     /**

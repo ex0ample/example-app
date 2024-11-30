@@ -14,7 +14,7 @@
         </svg>
         <span class="sr-only">Info</span>
         <div class="ms-3 text-sm font-medium">
-            เพิ่มข้อมูลสำเร็จ <a href="#" class="font-semibold underline hover:no-underline">ดูข้อมูลเพิ่มเติม</a>.
+            {{ $value }}
         </div>
         <button type="button" class="ms-auto -mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex items-center justify-center h-8 w-8" data-dismiss-target="#alert-3" aria-label="Close">
             <span class="sr-only">Close</span>
@@ -38,7 +38,7 @@
             <div>
                 <div class="relative">
                     <label for="time" class="block mb-2 text-sm font-medium text-gray-600">ระยะเวลา</label>
-                    <input type="time" id="time" name="time" value="{{old('time')}}" class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{old('time')}}" required />
+                    <input type="time" id="time" name="time" value="{{old('time')}}" class="bg-gray-50 border leading-none border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{old('time')}}" />
                 </div>
                 @error('time')<p id="time_error_help" class="mt-2 text-xs text-red-600"><span class="font-medium">Oh, snapp! </span>{{ $message }}</p>@enderror
             </div>
