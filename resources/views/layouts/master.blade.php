@@ -41,6 +41,7 @@
                     <p class="set_date">Thursday 1 Jan</p>
                     <p class="set_time">00:00 AM</p>
                 </div>
+                <p>ผู้ใช้งาน {{ Auth::user()->name }} [{{ Auth::user()->email }}]</p>
             </div>
 
             @yield('main')

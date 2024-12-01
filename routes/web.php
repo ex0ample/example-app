@@ -10,6 +10,8 @@ Route::get('/', function () {
 
 Route::resource('todo', TodoController::class)->middleware(['auth', 'verified']);
 
+Route::patch('todo/state/{id}', [TodoController::class, 'state'])->name('todo.state');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
