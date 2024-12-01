@@ -17,7 +17,7 @@ class TodoController extends Controller
     public function index()
     {
         //ดึงข้อมูล ในตาราง Todo 5 เรคคอร์ด ล่าสุด มาเก็บไว้ใน $todos
-        $todos = Todo::where('user_id', Auth::id())->where('is_completed', false)->latest()->paginate(5);
+        $todos = Todo::where('user_id', Auth::id())->latest()->paginate(5);
         
         //นำข้อมูลใน $todos ส่งไปแสดงในหน้า Views>todos>index.blade.php
         return view('todos.index', compact('todos'));
